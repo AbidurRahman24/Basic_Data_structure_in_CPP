@@ -2,34 +2,25 @@
 using namespace std;
 int main()
 {
-    int n,s,k;
+    int n;
     cin>>n;
-    s=n-1;
-    k=1;
-    for (int i = 1; i <= (2*n)-1; i++)
-    {
-        for (int j = 1; j <=s; j++)
-        {
-            cout<<" ";
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j <= n;j++){
+            if (i == (n + 1) / 2 && j == (n + 1) / 2)
+            { 
+                cout<<"X";
+            }
+            else if(i == j){ 
+               cout<<"\\";
+            }
+            else if(i+j == n+1){ 
+                cout<<"/";
+            }
+            else{
+                cout<<" ";
+            }
         }
-        for (int j = 0; j <=k; j++)
-        {
-            cout<<"*";
-        }
-         if (i<=n-1) 
-        {
-            s--;
-            k=k+2;
-        }
-        else
-        {
-            s++;
-            k=k-2;
-        }
-
-        cout<<"\n";
-        
+        printf("\n");
     }
-    
     return 0;
 }

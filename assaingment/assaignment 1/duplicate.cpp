@@ -4,16 +4,27 @@ int main()
 {
     int n;
     cin>>n;
-    vector<int> v(n);
+    int a[n];
     for (int i = 0; i < n; i++)
     {
-        cin>>v[i];
+        cin>>a[i];
     }
+    sort(a,a+n);
+    bool flag = false;
     for (int i = 0; i < n; i++)
     {
-        auto it=find(v.begin(),v.end(),v[i]);
-        if(it ==v.end()) cout<<"NO"<<endl;
-        else cout<<"YES"<<endl;
+        if(a[i] ==a[i+1])
+        {
+            flag=true;
+        }
+    }
+    if(flag ==false)
+    {
+        cout<<"NO"<<endl;
+    }
+    else
+    {
+        cout<<"YES"<<endl;
     }
     return 0;
 }
