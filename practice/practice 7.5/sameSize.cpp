@@ -23,7 +23,7 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
     tail->next = newNode;
     tail = newNode;
 }
-int size (Node * head)
+int nodeSize (Node * head)
 {
     Node * tmp = head;
     int count = 0;
@@ -35,16 +35,19 @@ int size (Node * head)
     return count;
     
 }
-void print_linekd_list(Node *head)
-{
-    Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl;
-}
+// int nodeSize(Node * head)
+// {
+//     // cout<<endl<<endl<<"Your Linked List: "<<endl<<endl;
+//     Node * tmp = head;
+//     int count =0;
+//     while (tmp != NULL)
+//     {
+//         count++;
+//         tmp = tmp->next;
+//     }
+//     cout<<endl;
+//     cout<<count<<" ";
+// }
 int main()
 {
     int val;
@@ -57,7 +60,7 @@ int main()
             break;
         insert_at_tail(head, tail, val);
     }
-    print_linekd_list(head);
+    // print_linekd_list(head);
     cout<<endl;
     int val2;
     Node *head2 = NULL;
@@ -69,7 +72,13 @@ int main()
             break;
         insert_at_tail(head2, tail2, val2);
     }
-    
-    print_linekd_list(head);
+    if(nodeSize(head) == nodeSize(head2))
+    {
+        cout<<"YES"<<endl;
+    }
+    else
+    {
+        cout<<"NO"<<endl;
+    }
     return 0;
 }
