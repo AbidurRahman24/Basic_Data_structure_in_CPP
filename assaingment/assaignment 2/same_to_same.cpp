@@ -40,7 +40,7 @@ bool same_to_same_value(Node *head, Node *head2)
         tmp = tmp->next;
         tmp2 = tmp2->next;
     }
-    return false;
+    return tmp != NULL && tmp2 != NULL;
 }
 
 int main()
