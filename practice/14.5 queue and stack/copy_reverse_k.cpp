@@ -4,28 +4,31 @@ int main()
 {
     queue<int> q;
     stack<int> st;
-    int n;
-    cin >> n;
+    int n,k;
+    cin >> n >> k;
     for (int i = 0; i < n; i++)
     {
         int x;
         cin >> x;
         q.push(x);
     }
-
-    while (!q.empty())
+    for (int i = 0; i < k; i++)
     {
-        int k = q.front();
+        st.push(q.front());
         q.pop();
-        st.push(k);
     }
+
     while (!st.empty())
     {
-        int k = st.top();
+        q.push(st.top());
         st.pop();
-        q.push(k);
     }
 
+    for (int i = 0; i < n - k; i++)
+    {
+        q.push(q.front());
+        q.pop();
+    }
     while (!q.empty())
     {
         cout << q.front() << " ";
