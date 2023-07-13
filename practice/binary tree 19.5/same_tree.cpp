@@ -18,15 +18,15 @@ void getPreValue(TreeNode* node, vector<int>& leafValues) {
     getPreValue(node->right, leafValues);
 }
 
-void getPostValue(TreeNode* node, vector<int>& leafValues) {
-    if (node == NULL)
-        return;
-    getPostValue(node->left, leafValues);
-    getPostValue(node->right, leafValues);
-    leafValues.push_back(node->val);
-    cout<<endl;
-    cout<<node->val<<" ";
-}
+// void getPostValue(TreeNode* node, vector<int>& leafValues) {
+//     if (node == NULL)
+//         return;
+//     getPostValue(node->left, leafValues);
+//     getPostValue(node->right, leafValues);
+//     leafValues.push_back(node->val);
+//     cout<<endl;
+//     cout<<node->val<<" ";
+// }
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
