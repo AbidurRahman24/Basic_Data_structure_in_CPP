@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 class Node
 {
@@ -18,7 +17,6 @@ Node *input_tree()
 {
     int val;
     cin >> val;
-    
     Node *root;
     if (val == -1)
         root = NULL;
@@ -58,48 +56,37 @@ Node *input_tree()
     }
     return root;
 }
-void nodeLevel(Node *root,int x)
+int max_height(Node *root)
 {
-    if (root == NULL) {
-        return;
-    }
-    queue<pair<Node *, int>> q;
-    // q.push(make_pair(root,1));
-    bool flag = false;
-    q.push({root, 0});
-    while (!q.empty())
-    {
-        pair<Node *, int> pr = q.front();
-        Node *node = pr.first;
-        int level = pr.second;
-        q.pop();
-
-        if (level == x)
-        {
-            cout << node->val << " ";
-            flag=true;
-        }
-
-        if (node->left)
-        {
-            q.push({node->left, level + 1});
-        }
-        if (node->right)
-        {
-            q.push({node->right, level + 1});
-        }
-    }
-    if(flag==false)
-    {
-        cout<<"Invalid"<<endl;
-    }
+    if(root == NULL) return -1;
+    int l = max_height(root->left);
+    int r = max_height(root->right);
+    return max(l,r)+1;
 }
-
+int count(Node * root)
+{
+    if(root == NULL)
+    {
+        return 0;
+    }
+    int l = count(root->left);
+    int r = count(root->right);
+    return l+r+1;
+}
 int main()
 {
     Node *root = input_tree();
-    int x;
-    cin>>x;
-    nodeLevel(root,x);
+    int c = count(root);
+    int m = max_height(root);
+    int perfect_binary = pow(2, m + 1) - 1;;
+    cout<<"Count "<<c<<" "<<"max "<<m<<" "<<"perfect "<<perfect_binary<<endl;
+    if(perfect_binary == c)
+    {
+        cout<<"YES"<<endl;
+    }
+    else
+    {
+        cout<<"NO"<<endl;
+    }
     return 0;
 }
