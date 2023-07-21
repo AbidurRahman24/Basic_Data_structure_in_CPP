@@ -20,13 +20,11 @@ int main()
         while (ss >> word)
         {
             mp[word]++;
-            if (mp[word] > cnt)
-            {
+            if( mp[word] > cnt)
+            // mp[word] > cnt || (mp[word] == cnt && word.length() > mxStr.length())
                 cnt = mp[word];
-                mxStr = word;
-            }
         }
-        cout << mxStr << " " << cnt << endl;
+        cout << word << " " << cnt << endl;
     }
 
     return 0;
